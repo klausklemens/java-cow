@@ -1,7 +1,3 @@
 ﻿# java-cow
 
-aber jaaa
-
-Wie geht's den so??
-oder soo
-penis
+This is just a basic git project which I'm using to store some files. Nothing like REALY interesting...
