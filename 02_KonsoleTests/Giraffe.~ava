@@ -13,13 +13,8 @@ public class Giraffe extends Tier {
   // Ende Attribute
   
   // Anfang Methoden
-  public Giraffe(int halsLaenge, int beinAnzahl, boolean hatFell) {
-    super(beinAnzahl, hatFell, "*GIRAFF*");
+  public Giraffe(int halsLaenge) {
     this.hals = halsLaenge;
-  }
-  
-  public int getHals() {
-    return hals;
   }
   // Ende Methoden
 } // end of Giraffe
