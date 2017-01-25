@@ -18,8 +18,8 @@ public class Giraffe extends Tier {
     this.hals = halsLaenge;
   }
   
-  public int getHals() {
-    return hals;
+  public String getHals() {
+    return hals + " Meter";
   }
   // Ende Methoden
 } // end of Giraffe

@@ -14,7 +14,9 @@ public class Konsole {
     System.out.println(giraff.makeSound());
     System.out.println(giraff.getBeine());
     System.out.println(giraff.getFell());
-    System.console.readLine();
+    while (true) { 
+      
+    } // end of while
   } // end of main
 
 } // end of class Konsole
