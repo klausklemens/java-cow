@@ -27,9 +27,14 @@ public class SocketClient {
       BufferedReader in = new BufferedReader(
           new InputStreamReader(kkSocket.getInputStream()));
 
+<<<<<<< HEAD
       System.out.println("Verbunden");
 
       while ((fromServer = in.readLine()) != null) {
+=======
+      while (true) {
+        fromServer = in.readLine();
+>>>>>>> ad741bafa661842b65a56e7c976d0f87663a4ea4
         System.out.println("Server: " + fromServer);
         if (fromServer.equals("Bye.")) { break; }
 
