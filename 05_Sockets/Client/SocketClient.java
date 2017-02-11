@@ -12,10 +12,13 @@ import java.io.InputStreamReader;
   */
 
 public class SocketClient {
+  // Anfang Attribute
+  // Ende Attribute
   
+  // Anfang Methoden
   public static void main(String[] args) {
-    String hostName = args[0];
-    int portNumber = Integer.parseInt(args[1]);
+    String hostName = "192.168.0.171"; //args[0];
+    int portNumber = 4444; //Integer.parseInt(args[1]);
 
     String fromServer;
     String fromUser;
@@ -29,19 +32,20 @@ public class SocketClient {
 
       System.out.println("Verbunden");
       while (true) {
-        fromServer = in.readLine();
-        System.out.println("Server: " + fromServer);
-        if (fromServer.equals("Bye.")) { break; }
-
         fromUser = System.console().readLine();
         if (fromUser != null) {
           System.out.println("Client: " + fromUser);
           out.println(fromUser);
         }
+        
+        fromServer = in.readLine();
+        System.out.println("Server: " + fromServer);
+        if (fromServer.equals("Bye.")) { break; }
       }
     } catch(Exception e) {
       
     }
   } // end of main
+  // Ende Methoden
 
 } // end of class SocketClient

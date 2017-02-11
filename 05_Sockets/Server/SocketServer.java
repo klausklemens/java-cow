@@ -32,9 +32,10 @@ public class SocketServer {
       String inputLine;
       String outputLine;
       
-      while ((inputLine = in.readLine()) != null) {
-        outputLine = inputLine;
-        out.println(outputLine);
+      while (true) {
+        inputLine = in.readLine();
+        System.out.println(inputLine);
+        out.println("PenisPupsii");
       }
     } catch(Exception e) {
       
