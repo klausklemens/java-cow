@@ -16,12 +16,10 @@ public class SocketClient implements Runnable {
   private Socket socket;
   private PrintWriter out;
   private BufferedReader in;
-  private GameClient cl;
   // Ende Attribute
   
-  public SocketClient(String hostName, int portNumber, GameClient cl) {
+  public SocketClient(String hostName, int portNumber) {
     try {
-      this.cl = cl;
       socket = new Socket(hostName, portNumber);
       out = new PrintWriter(socket.getOutputStream(), true);
       in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -29,14 +27,21 @@ public class SocketClient implements Runnable {
       
     }
   }
+  
+  public void serverMessage(String gottenMessage) {
+    return;
+  }
+  
+  public void sendMessage(String message) {
+    out.println(message);  
+  }
     
   public void run() {
-    out.println("hallo");
     while (true) {
       String gottenMessage = "";
       try {
         if ((gottenMessage = in.readLine()) != "") {
-          cl.ServerAnswer(gottenMessage);
+          serverMessage(gottenMessage);
         }
       } catch(Exception e) {
         
