@@ -27,7 +27,8 @@ public class SocketClient {
       BufferedReader in = new BufferedReader(
           new InputStreamReader(kkSocket.getInputStream()));
 
-      while ((fromServer = in.readLine()) != null) {
+      while (true) {
+        fromServer = in.readLine();
         System.out.println("Server: " + fromServer);
         if (fromServer.equals("Bye.")) { break; }
 
