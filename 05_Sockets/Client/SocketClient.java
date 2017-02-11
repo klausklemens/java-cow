@@ -17,8 +17,8 @@ public class SocketClient {
   
   // Anfang Methoden
   public static void main(String[] args) {
-    String hostName = "192.168.0.171"; //args[0];
-    int portNumber = 4444; //Integer.parseInt(args[1]);
+    String hostName =  args[0];
+    int portNumber = Integer.parseInt(args[1]);
 
     String fromServer;
     String fromUser;
