@@ -27,6 +27,8 @@ public class SocketServer {
       in = new BufferedReader(
           new InputStreamReader(clientSocket.getInputStream()));
     
+      System.out.println("Verbunden");
+    
       String inputLine;
       String outputLine;
       
