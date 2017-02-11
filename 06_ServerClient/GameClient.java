@@ -43,6 +43,7 @@ public class GameClient extends JFrame implements ServerAnswer {
     setVisible(true);
     
     socketClient = new Thread(new SocketClient("192.168.0.171",4444,this));
+    socketClient.start();
   } // end of public GameClient
   
   public void ServerAnswer(String message) {

@@ -31,6 +31,7 @@ public class SocketClient implements Runnable {
   }
     
   public void run() {
+    out.println("hallo");
     while (true) {
       String gottenMessage = "";
       try {
