@@ -35,7 +35,7 @@ public class SocketServer {
       while (true) {
         inputLine = in.readLine();
         System.out.println(inputLine);
-        out.println("PenisPupsii");
+        out.println(System.console().readLine());
       }
     } catch(Exception e) {
       
