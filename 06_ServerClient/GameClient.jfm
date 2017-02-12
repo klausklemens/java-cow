@@ -14,7 +14,9 @@ object GameClient: TFGUIForm
   FormStyle = fsMDIChild
   OldCreateOrder = True
   Position = poDesigned
+  ShowHint = True
   Visible = True
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize

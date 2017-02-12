@@ -56,7 +56,7 @@ public class GameClient extends JFrame {
     
     setVisible(true);
     
-    socketClientSender = new SocketClient("192.168.0.171",4444) {
+    socketClientSender = new SocketClient("192.168.0.170",4444) {
       public void serverMessage(String gottenMessage) {
         serverAnswer(gottenMessage);
       }
