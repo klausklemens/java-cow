@@ -52,6 +52,11 @@ public class GameClient extends JFrame {
     cp.add(jButton1);
     jTextField1.setBounds(72, 96, 150, 20);
     cp.add(jTextField1);
+    addWindowListener(new WindowAdapter() { 
+      public void windowClosing(WindowEvent evt) { 
+        GameClient_WindowClosing(evt);
+      }
+    });
     // Ende Komponenten
     
     setVisible(true);
@@ -63,7 +68,18 @@ public class GameClient extends JFrame {
     };
     socketClientReciver = new Thread(socketClientSender);
     socketClientReciver.start();
-  }
+  } 
+  
+  // Anfang Methoden
+  
+  public void GameClient_WindowClosing(WindowEvent evt) {socketClientSender.stop();
+    socketClientSender.stop();
+    try {
+      socketClientReciver.join();
+    } catch(Exception e) {
+      
+    }
+  } 
   
   public void serverAnswer(String message) {
     jLabel1.setText(message);
@@ -76,4 +92,6 @@ public class GameClient extends JFrame {
   public void jButton1_ActionPerformed(ActionEvent evt) {
     socketClientSender.sendMessage(jTextField1.getText());
   }
+
+  // Ende Methoden
 } // end of class GameClient

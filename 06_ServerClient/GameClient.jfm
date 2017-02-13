@@ -16,7 +16,6 @@ object GameClient: TFGUIForm
   Position = poDesigned
   ShowHint = True
   Visible = True
-  WindowState = wsMaximized
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize
@@ -24,6 +23,7 @@ object GameClient: TFGUIForm
   Resizable = False
   Undecorated = False
   Background = clBtnFace
+  windowClosing = 'GameClient_WindowClosing'
   PixelsPerInch = 96
   TextHeight = 13
   object jLabel1: TJLabel

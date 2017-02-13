@@ -16,6 +16,8 @@ public class SocketClient implements Runnable {
   private Socket socket;
   private PrintWriter out;
   private BufferedReader in;
+  
+  private volatile boolean stopThread = false;
   // Ende Attribute
   
   public SocketClient(String hostName, int portNumber) {
@@ -35,18 +37,21 @@ public class SocketClient implements Runnable {
   public void sendMessage(String message) {
     out.println(message);  
   }
+  
+  public void stop() {
+    stopThread = true;
+  }
     
   public void run() {
-    while (true) {
+    while (!stopThread) {
       String gottenMessage = "";
       try {
-        if ((gottenMessage = in.readLine()) != "") {
+        gottenMessage = in.readLine();
+        if (gottenMessage != "") {
           serverMessage(gottenMessage);
         }
-      } catch(Exception e) {
-        
-      } 
-    } 
+      } catch(Exception e) {  }
+    }
   }
    
 }// end of SocketClient
