@@ -52,6 +52,11 @@ public class GameClient extends JFrame {
     cp.add(jButton1);
     jTextField1.setBounds(72, 96, 150, 20);
     cp.add(jTextField1);
+    addWindowListener(new WindowAdapter() { 
+      public void windowClosing(WindowEvent evt) { 
+        GameClient_WindowClosing(evt);
+      }
+    });
     // Ende Komponenten
     
     setVisible(true);
@@ -66,6 +71,15 @@ public class GameClient extends JFrame {
   } 
   
   // Anfang Methoden
+  
+  public void GameClient_WindowClosing(WindowEvent evt) {socketClientSender.stop();
+    socketClientSender.stop();
+    try {
+      // socketClientReciver.join();
+    } catch(Exception e) {
+      
+    }
+  } 
   
   public void serverAnswer(String message) {
     jLabel1.setText(message);
