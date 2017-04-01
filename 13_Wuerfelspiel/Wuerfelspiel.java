@@ -13,6 +13,7 @@ import javax.swing.event.*;
 
 public class Wuerfelspiel extends JFrame {
   // Anfang Attribute
+  private int money = 50;
   private JLabel jLabel1 = new JLabel();
   private JLabel jLabel2 = new JLabel();
   private JNumberField jNumberField1 = new JNumberField();
@@ -61,8 +62,9 @@ public class Wuerfelspiel extends JFrame {
       }
     });
     cp.add(jButton1);
-    jTextArea1ScrollPane.setBounds(8, 160, 121, 73);
+    jTextArea1ScrollPane.setBounds(8, 160, 121, 97);
     jTextArea1.setEditable(false);
+    jTextArea1.setLineWrap(true);
     cp.add(jTextArea1ScrollPane);
     jTextArea2ScrollPane.setBounds(8, 8, 113, 25);
     jTextArea2.setEditable(false);
@@ -70,6 +72,7 @@ public class Wuerfelspiel extends JFrame {
     // Ende Komponenten
     
     setVisible(true);
+    updateMoney();
   } // end of public Wuerfelspiel
   
   // Anfang Methoden
@@ -78,13 +81,18 @@ public class Wuerfelspiel extends JFrame {
     new Wuerfelspiel();
   } // end of main
   
+  public void updateMoney() {
+    jTextArea2.setText("Geld: " + money + "€");
+  }
+  
   public void jButton1_ActionPerformed(ActionEvent evt) {
     int tipp = jNumberField1.getInt();
     int treffer = 0;
     for (int i = 0; i < 3; i++) {
       int zufall;
-      if (jTextField1.getText().equals("Vincent")) {
-        if ((int) (Math.random() * 3 + 1) == 1) {
+      if (jTextField1.getText().equals("Vincent") || jTextField1.getText().equals("Torsten")) {
+        zufall = (int) (Math.random() * 6 + 1);
+        if (zufall == 1) {
           treffer++;
           continue;
         } // end of if
@@ -94,7 +102,26 @@ public class Wuerfelspiel extends JFrame {
         treffer++;
       } // end of if
     } // end of for
-    jTextArea1.setText("Hey, " + jTextField1.getText() + "\ndu hast " + treffer + " richtige.");
+    String loseText;
+    switch (treffer) {
+      case  3: 
+        money += 5;
+        loseText = "sage und schreibe 5€ (!!!) GEWONNEN!";
+        break;
+      case  2: 
+        money += 2;
+        loseText = "ganze 2€ Gewonnen!";
+        break;
+      case  1:
+        money += 1;
+        loseText = "einen Euro Gewonnen.";
+        break;
+      default: 
+        money -= 1;
+        loseText = "leider einen Euro abgeben müssen :(";
+    } // end of switch
+    jTextArea1.setText("Hey, " + jTextField1.getText() + "\ndu hast " + treffer + " richtige und darum " + loseText);
+    updateMoney();
   } // end of jButton1_ActionPerformed
 
   // Ende Methoden

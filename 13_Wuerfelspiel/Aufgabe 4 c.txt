@@ -1,0 +1,2 @@
+Man könnte ein programm schreiben, das durch eine For-Schleife mit einer statistisch signifikanten anzahl an iterationen, würfeln lassen und schauen wie viel der spieler noch von einem ausgangsgeldwert übrigbehält.
+Jedoch könnte man auch einen Affe vor das Programm setzen und an der Linken maustaste hängt... eine Banane. 

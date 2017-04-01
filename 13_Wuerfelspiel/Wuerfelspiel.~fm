@@ -157,7 +157,7 @@ object Wuerfelspiel: TFGUIForm
     Left = 8
     Top = 160
     Width = 121
-    Height = 73
+    Height = 97
     Cursor = crIBeam
     Hint = 'jTextArea1'
     Font.Charset = DEFAULT_CHARSET
@@ -167,7 +167,7 @@ object Wuerfelspiel: TFGUIForm
     Font.Style = [fsBold]
     Foreground = 3355443
     Background = clWhite
-    LineWrap = False
+    LineWrap = True
     HorizontalScrollBarPolicy = AS_NEEDED
     VerticalScrollBarPolicy = AS_NEEDED
     WrapStyleWord = False
