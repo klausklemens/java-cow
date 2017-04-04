@@ -3,7 +3,7 @@ object Primzahlen: TFGUIForm
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Primzahlen'
-  ClientHeight = 261
+  ClientHeight = 324
   ClientWidth = 284
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -152,5 +152,67 @@ object Primzahlen: TFGUIForm
     DragEnabled = False
     HorizontalScrollBarPolicy = AS_NEEDED
     VerticalScrollBarPolicy = AS_NEEDED
+  end
+  object jButton3: TJButton
+    Tag = 4
+    Left = 8
+    Top = 264
+    Width = 265
+    Height = 25
+    Hint = 'jButton3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Foreground = 3355443
+    Background = 15658734
+    actionPerformed = 'jButton3_ActionPerformed'
+    Text = 'Alle Schritte'
+    Mnemonic = 0
+    DisplayedMnemonicIndex = 0
+    Selected = False
+    BorderPainted = True
+    FocusPainted = False
+    ContentAreaFilled = True
+    HorizontalAlignment = CENTER
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = RIGHT
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    RolloverEnabled = False
+    Border.BorderType = NoBorder
+    Border.LineColor = clBlack
+    Border.LineThickness = 0
+    Border.LineRounded = False
+    Border.EtchHighlightColor = clBlack
+    Border.EtchShadowColor = clBlack
+    Border.Etchtype = 0
+    Border.BevelHighlightColor = clBlack
+    Border.BevelShadowColor = clBlack
+    Border.Beveltype = 0
+    Border.MatteColor = clBlack
+    Border.MatteTop = 0
+    Border.MatteLeft = 0
+    Border.MatteBottom = 0
+    Border.MatteRight = 0
+  end
+  object jTextField1: TJTextField
+    Tag = 2
+    Left = 8
+    Top = 296
+    Width = 265
+    Height = 25
+    Cursor = crIBeam
+    Hint = 'jTextField1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = []
+    Foreground = 3355443
+    Background = clWhite
+    HorizontalAlignment = LEFT
+    Editable = False
   end
 end

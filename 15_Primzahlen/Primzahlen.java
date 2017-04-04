@@ -19,8 +19,10 @@ public class Primzahlen extends JFrame {
   private JButton jButton1 = new JButton();
   private JButton jButton2 = new JButton();
   private JTable jTable1 = new JTable(10, 10);
-    private DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
-    private JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
+  private DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
+  private JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
+  private JButton jButton3 = new JButton();
+  private JTextField jTextField1 = new JTextField();
   // Ende Attribute
   
   public Primzahlen() { 
@@ -28,7 +30,7 @@ public class Primzahlen extends JFrame {
     super();
     setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     int frameWidth = 300; 
-    int frameHeight = 300;
+    int frameHeight = 363;
     setSize(frameWidth, frameHeight);
     Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
     int x = (d.width - getSize().width) / 2;
@@ -71,6 +73,18 @@ public class Primzahlen extends JFrame {
     jTable1.getColumnModel().getColumn(9).setHeaderValue(".");
     jTable1.setRowHeight(19);
     cp.add(jTable1ScrollPane);
+    jButton3.setBounds(8, 264, 265, 25);
+    jButton3.setText("Alle Schritte");
+    jButton3.setMargin(new Insets(2, 2, 2, 2));
+    jButton3.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        jButton3_ActionPerformed(evt);
+      }
+    });
+    cp.add(jButton3);
+    jTextField1.setBounds(8, 296, 265, 25);
+    jTextField1.setEditable(false);
+    cp.add(jTextField1);
     // Ende Komponenten
     
     setVisible(true);
@@ -83,6 +97,15 @@ public class Primzahlen extends JFrame {
   } // end of main
   
   public void jButton1_ActionPerformed(ActionEvent evt) {
+    reset();
+  }  
+
+  public void jButton2_ActionPerformed(ActionEvent evt) {
+    doStep(true);
+  } // end of jButton2_ActionPerformed
+  
+  public void reset() {
+    jTextField1.setText("");
     for (int i = 1; i <= nummern.length; i++) {
       nummern[i-1] = i;
       if (i == 1) { nummern[0] = 0; }
@@ -99,15 +122,40 @@ public class Primzahlen extends JFrame {
     } // end of for
   } // end of jButton1_ActionPerformed
 
-  public void jButton2_ActionPerformed(ActionEvent evt) {
-    do { indexPos++; } while (nummern[indexPos] == 0);
+  public void doStep(boolean draw) {
+    do {
+      indexPos++;
+      if (indexPos >= nummern.length) {
+        return;
+      }
+    } while (nummern[indexPos] == 0);
+    if(draw) {
+      jTextField1.setText(jTextField1.getText() + nummern[indexPos] + ", ");
+    }
     for(int i = indexPos+1; i < nummern.length; i++) {
       if (nummern[i] % nummern[indexPos] == 0) {
         nummern[i] = 0;
       }
     }
+    if(draw) {
+      zeichne();
+    }
+  }
+
+  public void jButton3_ActionPerformed(ActionEvent evt) {
+    reset();
+    for (int s = 0; s < Math.sqrt(nummern.length); s++) {
+      doStep(false);
+    }
+    String output = "";
+    for (int loop = 0; loop < nummern.length; loop++) {
+      if(nummern[loop] != 0) {
+        output += nummern[loop] + ", ";
+      }
+    } // end of for
+    jTextField1.setText(output);
     zeichne();
-  } // end of jButton2_ActionPerformed
+  } // end of jButton3_ActionPerformed
 
   // Ende Methoden
 } // end of class Primzahlen
