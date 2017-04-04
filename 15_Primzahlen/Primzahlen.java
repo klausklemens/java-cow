@@ -14,11 +14,13 @@ import javax.swing.table.*;
 
 public class Primzahlen extends JFrame {
   // Anfang Attribute
+  private int indexPos = 0;
   private int[] nummern = new int[100];
   private JButton jButton1 = new JButton();
-  private JTextArea jTextArea1 = new JTextArea("");
-    private JScrollPane jTextArea1ScrollPane = new JScrollPane(jTextArea1);
   private JButton jButton2 = new JButton();
+  private JTable jTable1 = new JTable(10, 10);
+    private DefaultTableModel jTable1Model = (DefaultTableModel) jTable1.getModel();
+    private JScrollPane jTable1ScrollPane = new JScrollPane(jTable1);
   // Ende Attribute
   
   public Primzahlen() { 
@@ -38,8 +40,8 @@ public class Primzahlen extends JFrame {
     cp.setLayout(null);
     // Anfang Komponenten
     
-    jButton1.setBounds(8, 232, 107, 25);
-    jButton1.setText("jButton1");
+    jButton1.setBounds(8, 232, 139, 25);
+    jButton1.setText("Reset");
     jButton1.setMargin(new Insets(2, 2, 2, 2));
     jButton1.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
@@ -47,10 +49,8 @@ public class Primzahlen extends JFrame {
       }
     });
     cp.add(jButton1);
-    jTextArea1ScrollPane.setBounds(8, 8, 265, 217);
-    cp.add(jTextArea1ScrollPane);
-    jButton2.setBounds(120, 232, 121, 25);
-    jButton2.setText("jButton2");
+    jButton2.setBounds(152, 232, 121, 25);
+    jButton2.setText("Schritt");
     jButton2.setMargin(new Insets(2, 2, 2, 2));
     jButton2.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
@@ -58,6 +58,19 @@ public class Primzahlen extends JFrame {
       }
     });
     cp.add(jButton2);
+    jTable1ScrollPane.setBounds(8, 8, 265, 217);
+    jTable1.getColumnModel().getColumn(0).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(1).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(2).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(3).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(4).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(5).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(6).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(7).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(8).setHeaderValue(".");
+    jTable1.getColumnModel().getColumn(9).setHeaderValue(".");
+    jTable1.setRowHeight(19);
+    cp.add(jTable1ScrollPane);
     // Ende Komponenten
     
     setVisible(true);
@@ -75,22 +88,25 @@ public class Primzahlen extends JFrame {
       if (i == 1) { nummern[0] = 0; }
     } // end of for
     zeichne();
+    indexPos = 0;
   }
   
   public void zeichne() {
-    jTextArea1.setText("");
-    for (int i = 1; i <= nummern.length; i++) {
-      jTextArea1.append(nummern[i-1] + " ");
-      if (i < 10) { jTextArea1.append("  "); }
-      if (i % 10 == 0) { jTextArea1.append("\n"); }
+    for (int z = 0; z < 10; z++) {
+      for (int s = 0; s < 10; s++) {
+        jTable1.setValueAt(nummern[(z*10)+s], z, s);
+      } // end of for
     } // end of for
   } // end of jButton1_ActionPerformed
 
   public void jButton2_ActionPerformed(ActionEvent evt) {
-    int selectedIndex;
-    for (int i = 0; i < nummern.length; i++) {
-      
-    } // end of for
+    do { indexPos++; } while (nummern[indexPos] == 0);
+    for(int i = indexPos+1; i < nummern.length; i++) {
+      if (nummern[i] % nummern[indexPos] == 0) {
+        nummern[i] = 0;
+      }
+    }
+    zeichne();
   } // end of jButton2_ActionPerformed
 
   // Ende Methoden
