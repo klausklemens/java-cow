@@ -3,7 +3,7 @@ object Primzahlen: TFGUIForm
   Top = 0
   BorderIcons = [biSystemMenu]
   Caption = 'Primzahlen'
-  ClientHeight = 324
+  ClientHeight = 261
   ClientWidth = 284
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
