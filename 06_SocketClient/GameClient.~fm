@@ -16,7 +16,6 @@ object GameClient: TFGUIForm
   Position = poDesigned
   ShowHint = True
   Visible = True
-  WindowState = wsMaximized
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize
