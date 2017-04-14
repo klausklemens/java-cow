@@ -120,6 +120,7 @@ public class GameClient extends JFrame {
       }
     };
     socketClientReciver = new Thread(socketClientSender);
+    socketClientReciver.setDaemon(true);
     socketClientReciver.start();
     
     jButton1.setEnabled(true);
