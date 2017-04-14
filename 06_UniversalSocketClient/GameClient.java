@@ -40,7 +40,7 @@ public class GameClient extends JFrame {
     int x = (d.width - getSize().width) / 2;
     int y = (d.height - getSize().height) / 2;
     setLocation(x, y);
-    setTitle("GameClient");
+    setTitle("Client");
     setResizable(false);
     Container cp = getContentPane();
     cp.setLayout(null);

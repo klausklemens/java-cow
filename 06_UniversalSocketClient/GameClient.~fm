@@ -2,7 +2,7 @@ object GameClient: TFGUIForm
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
-  Caption = 'GameClient'
+  Caption = 'Socket Client'
   ClientHeight = 257
   ClientWidth = 211
   Color = clBtnFace
