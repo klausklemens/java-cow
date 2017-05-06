@@ -1,0 +1,22 @@
+public class NummernThread implements Runnable {
+  public NummernThread() {
+    //Constructor
+  } 
+  
+  public void setTextfeld(String msg) {
+    return;
+  }
+  
+  public void run() {
+    int i = 0;
+    while (true) { 
+      setTextfeld(i++ + "");
+      
+      try {
+        Thread.sleep(500);
+      } catch(InterruptedException e) { return; }
+      
+      if (Thread.currentThread().isInterrupted()) { return; }
+    } // end of while
+  }
+}
